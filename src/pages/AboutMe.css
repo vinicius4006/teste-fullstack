@@ -1,0 +1,19 @@
+.about 
+{
+    height: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 50px;
+   background: #fbeec2;
+}
+
+p
+{
+    color: #4c4a37; font-size: 18px; line-height: 32px; margin: 0 0 24px;
+}
+.text
+{
+    width: 80%;
+}

@@ -1,0 +1,29 @@
+
+.btn {
+    background-color: white; 
+      color: black; 
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 18px;
+      cursor: pointer;
+      border: 2px solid gray;
+  }
+input
+{
+    /* font-size: 0.9em;  
+    padding-top: 0.35rem;
+    border: none;
+    border-radius: 15px;
+    width: 30%;
+    text-align: center; */
+    font: inherit;
+  padding: 0.2em 0.5em;
+}
+label
+{
+  font-size: large;
+  font-weight: 900;
+}

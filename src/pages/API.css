@@ -1,0 +1,18 @@
+.body-api
+{
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+}
+h1
+{
+   color: #7c795d; 
+   font-size: 45px; 
+   font-weight: normal; 
+   line-height: 48px; 
+   margin: 0;
+   margin-bottom: 80px;
+}

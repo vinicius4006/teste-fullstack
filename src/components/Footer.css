@@ -1,0 +1,14 @@
+footer
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    background: whitesmoke;
+    padding: 20px;
+    
+}
+footer p
+{
+    color: #4c4a37; font-size: 18px; line-height: 32px; margin: 0 0 24px;
+}
