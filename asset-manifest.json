@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/teste-fullstack/static/css/main.9924150e.css",
+    "main.js": "/teste-fullstack/static/js/main.038656c0.js",
+    "static/js/787.b2e33391.chunk.js": "/teste-fullstack/static/js/787.b2e33391.chunk.js",
+    "static/media/bg-white.jpg": "/teste-fullstack/static/media/bg-white.d66c6eeee007459ef210.jpg",
+    "index.html": "/teste-fullstack/index.html",
+    "main.9924150e.css.map": "/teste-fullstack/static/css/main.9924150e.css.map",
+    "main.038656c0.js.map": "/teste-fullstack/static/js/main.038656c0.js.map",
+    "787.b2e33391.chunk.js.map": "/teste-fullstack/static/js/787.b2e33391.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9924150e.css",
+    "static/js/main.038656c0.js"
+  ]
+}
