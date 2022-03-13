@@ -2,6 +2,7 @@ import { useState } from "react";
 import ListaRepo from "../components/ListaRepo";
 import Form from "../components/Form";
 import Card from "../components/Card";
+import {loadUser, loadRepo} from '../utils/loadData'
 import './API.css';
 
 export default function API() {
@@ -38,31 +39,18 @@ export default function API() {
   };
 
   // Requisição
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch(`https://api.github.com/orgs/${userInput}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message) {
-          setError(data.message);
-        } else {
-          setData(data);
-          setError(null);
-          setShowMe(false);
-
-          // Ao receber a requisição, já chamo os repositórios
-          fetch(
-            `https://api.github.com/orgs/${userInput}/repos?per_page=60&type=owner`
-          )
-            .then((res) => res.json())
-            .then((data) => {
-              setlistRepo(data);
-            })
-            .catch((err) => {
-              console.log("Deu erro" + err.message);
-            });
-        }
-      });
+    const dataJson = await loadUser(userInput);
+    if(dataJson.message){
+      setError(dataJson.message)
+    }else{
+       setData(dataJson);
+    const repoJson = await loadRepo(dataJson);
+    setlistRepo(repoJson);
+    setError(null)
+    setShowMe(false)
+    }
   };
 
   return (
@@ -87,3 +75,28 @@ export default function API() {
     </div>
   );
 }
+
+
+// fetch(`https://api.github.com/orgs/${userInput}`)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         if (data.message) {
+//           setError(data.message);
+//         } else {
+//           setData(data);
+//           setError(null);
+//           setShowMe(false);
+
+//           // Ao receber a requisição, já chamo os repositórios
+//           fetch(
+//             `https://api.github.com/orgs/${userInput}/repos?per_page=60&type=owner`
+//           )
+//             .then((res) => res.json())
+//             .then((data) => {
+//               setlistRepo(data);
+//             })
+//             .catch((err) => {
+//               console.log("Deu erro" + err.message);
+//             });
+//         }
+//       });
