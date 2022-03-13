@@ -1,8 +1,8 @@
 export const loadUser = async (userInput) => {
     try{
         const response = await fetch(`https://api.github.com/orgs/${userInput}`)
-       const [userData] = await Promise.all([response]);
-       return await userData.json();
+       const userData = await response.json();
+       return await userData
     }catch(err){
         console.log(err);
     }
