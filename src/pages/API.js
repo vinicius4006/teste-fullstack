@@ -2,8 +2,8 @@ import { useState } from "react";
 import ListaRepo from "../components/ListaRepo";
 import Form from "../components/Form";
 import Card from "../components/Card";
-import {loadUser, loadRepo} from '../utils/loadData'
-import './API.css';
+import { loadUser, loadRepo } from "../utils/loadData";
+import "./API.css";
 
 export default function API() {
   const [name, setName] = useState("");
@@ -42,19 +42,20 @@ export default function API() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const dataJson = await loadUser(userInput);
-    if(dataJson.message){
-      setError(dataJson.message)
-    }else{
-       setData(dataJson);
-    const repoJson = await loadRepo(dataJson);
-    setlistRepo(repoJson);
-    setError(null)
-    setShowMe(false)
+    if (dataJson.message) {
+      setError(dataJson.message);
+    } else {
+      setData(dataJson);
+      //Aqui chamo o repositório
+      const repoJson = await loadRepo(dataJson);
+      setlistRepo(repoJson);
+      setError(null);
+      setShowMe(false);
     }
   };
 
   return (
-    <div id='project' className="body-api">
+    <div id="project" className="body-api">
       <h1>Projeto</h1>
       <Form handleSearch={handleSearch} handleSubmit={handleSubmit} />
       {error ? (
@@ -70,12 +71,9 @@ export default function API() {
           {showMe ? <ListaRepo repos={listRepo} /> : null}
         </div>
       )}
-      
-      
     </div>
   );
 }
-
 
 // fetch(`https://api.github.com/orgs/${userInput}`)
 //       .then((res) => res.json())
