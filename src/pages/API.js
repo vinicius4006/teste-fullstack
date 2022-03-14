@@ -41,7 +41,10 @@ export default function API() {
   // Requisição
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const dataJson = await loadUser(userInput);
+    if(userInput.length === 0)
+    alert("Insira a organização")
+    else{
+      const dataJson = await loadUser(userInput);
     if (dataJson.message) {
       setError(dataJson.message);
     } else {
@@ -52,6 +55,8 @@ export default function API() {
       setError(null);
       setShowMe(false);
     }
+    }
+    
   };
 
   return (
@@ -59,7 +64,12 @@ export default function API() {
       <h1>Projeto</h1>
       <Form handleSearch={handleSearch} handleSubmit={handleSubmit} />
       {error ? (
+        <>
         <h1>{error}</h1>
+        <h2>Lembrando que a pesquisa é feita por organizações</h2>
+        <h3>Verifique o campo e tente novamente</h3>
+        </>
+        
       ) : (
         <div>
           <Card
@@ -68,7 +78,7 @@ export default function API() {
             userName={userName}
             quantRepos={quantRepos}
           />
-          {showMe ? <ListaRepo repos={listRepo} /> : null}
+          {showMe ? <ListaRepo repos={listRepo}/> : null}
         </div>
       )}
     </div>
